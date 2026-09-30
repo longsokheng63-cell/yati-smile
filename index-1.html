@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 Reasons to Smile &amp; Keep Going 💖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Design tokens ---------- */
+  :root {
+    --bg: #0d0f17;
+    --panel: #151826;
+    --pink: #ff4fa3;
+    --cyan: #3de8ff;
+    --violet: #a26bff;
+    --text: #eceffb;
+    --muted: #8b90a8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Kantumruy Pro', 'Battambang', 'Khmer OS', system-ui, sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 32px 16px 48px;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* ---------- Floating background orbs & particles ---------- */
+  .bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .orb {
+    position: absolute; border-radius: 50%; filter: blur(70px); opacity: .35;
+    animation: drift 18s ease-in-out infinite alternate;
+  }
+  .orb.a { width: 340px; height: 340px; background: var(--pink);   top: -80px; left: -60px; }
+  .orb.b { width: 300px; height: 300px; background: var(--cyan);   bottom: -80px; right: -40px; animation-delay: -6s; }
+  .orb.c { width: 240px; height: 240px; background: var(--violet); top: 45%; left: 55%; animation-delay: -11s; }
+  @keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(40px, -50px) scale(1.15); }
+  }
+  .particle {
+    position: absolute; bottom: -20px; font-size: 14px; opacity: 0;
+    animation: rise linear infinite;
+  }
+  @keyframes rise {
+    0%   { transform: translateY(0) rotate(0); opacity: 0; }
+    10%  { opacity: .8; }
+    100% { transform: translateY(-105vh) rotate(60deg); opacity: 0; }
+  }
+
+  /* ---------- Header ---------- */
+  header { position: relative; z-index: 1; text-align: center; margin-bottom: 32px; }
+  h1 {
+    font-family: 'Pacifico', 'Kantumruy Pro', cursive;
+    font-weight: 400;
+    font-size: clamp(1.6rem, 5vw, 2.8rem);
+    color: #fff;
+    text-shadow: 0 0 8px var(--pink), 0 0 22px var(--pink), 0 0 44px var(--violet);
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 6px var(--pink), 0 0 16px var(--pink), 0 0 32px var(--violet); }
+    to   { text-shadow: 0 0 10px var(--pink), 0 0 30px var(--pink), 0 0 60px var(--violet); }
+  }
+  .subtitle { margin-top: 10px; color: var(--cyan); font-size: clamp(.9rem, 2.5vw, 1.05rem); text-shadow: 0 0 10px rgba(61,232,255,.5); }
+
+  /* ---------- Main two-column container ---------- */
+  .stage {
+    position: relative; z-index: 1;
+    width: 100%; max-width: 980px;
+    display: grid; grid-template-columns: 1fr 1.25fr; gap: 40px; align-items: center;
+  }
+
+  /* Polaroid frame */
+  .polaroid {
+    background: #f7f4ee; padding: 14px 14px 18px; border-radius: 4px;
+    transform: rotate(-3deg);
+    box-shadow: 0 20px 50px rgba(0,0,0,.6), 0 0 40px rgba(255,79,163,.25);
+    transition: transform .4s ease;
+    justify-self: center; width: 100%; max-width: 340px;
+  }
+  .polaroid:hover { transform: rotate(0deg) scale(1.02); }
+  .photo {
+    aspect-ratio: 1 / 1; border-radius: 2px; overflow: hidden; position: relative;
+    background: linear-gradient(135deg, #2a1f4a, #ff4fa3 55%, #3de8ff);
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* Replace the emoji placeholder with an <img> by setting PHOTOS[i] in the script */
+  .photo .ph { font-size: 5rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,.35)); transition: opacity .3s; }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .caption {
+    margin-top: 14px; text-align: center; color: #3a3550;
+    font-family: 'Pacifico', 'Kantumruy Pro', cursive; font-size: 1.05rem;
+  }
+
+  /* Reason card */
+  .card {
+    background: linear-gradient(160deg, rgba(21,24,38,.95), rgba(21,24,38,.75));
+    border: 1px solid rgba(162,107,255,.45);
+    border-radius: 20px; padding: 28px;
+    box-shadow: 0 0 30px rgba(162,107,255,.25), inset 0 0 30px rgba(61,232,255,.04);
+    backdrop-filter: blur(6px);
+    min-height: 380px; display: flex; flex-direction: column;
+  }
+  .badge {
+    align-self: flex-start; padding: 6px 16px; border-radius: 999px;
+    background: rgba(255,79,163,.12); border: 1px solid var(--pink);
+    color: var(--pink); font-weight: 700; font-size: .9rem;
+    box-shadow: 0 0 14px rgba(255,79,163,.4);
+  }
+  .content { flex: 1; margin: 22px 0; transition: opacity .35s ease, transform .35s ease; }
+  .content.out-left  { opacity: 0; transform: translateX(-24px); }
+  .content.out-right { opacity: 0; transform: translateX(24px); }
+  .content h2 { font-size: 1.3rem; color: var(--cyan); margin-bottom: 12px; text-shadow: 0 0 12px rgba(61,232,255,.45); }
+  .content p  { font-size: 1.05rem; line-height: 2; color: var(--text); }
+
+  /* Controls */
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .btn {
+    font: inherit; font-weight: 700; cursor: pointer;
+    padding: 10px 20px; border-radius: 12px; color: var(--text);
+    background: transparent; border: 1px solid var(--cyan);
+    transition: all .25s ease;
+  }
+  .btn:hover, .btn:focus-visible {
+    background: var(--cyan); color: #06222a; outline: none;
+    box-shadow: 0 0 22px var(--cyan);
+    transform: translateY(-2px);
+  }
+  .btn.next { border-color: var(--pink); }
+  .btn.next:hover, .btn.next:focus-visible { background: var(--pink); color: #2a0618; box-shadow: 0 0 22px var(--pink); }
+  .indicator { color: var(--muted); font-weight: 500; letter-spacing: .05em; }
+
+  /* Progress dots */
+  .dots { display: flex; justify-content: center; gap: 7px; margin-top: 16px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #2a2f47; cursor: pointer; border: 0; transition: all .3s; }
+  .dot.active { background: var(--pink); box-shadow: 0 0 10px var(--pink); transform: scale(1.35); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 760px) {
+    .stage { grid-template-columns: 1fr; gap: 28px; }
+    .polaroid { max-width: 280px; }
+    .card { padding: 22px; min-height: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Decorative background -->
+<div class="bg" aria-hidden="true">
+  <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+  <div id="particles"></div>
+</div>
+
+<header>
+  <h1>10 Reasons to Smile &amp; Keep Going 💖</h1>
+  <p class="subtitle">For Yati • From Land of Dawn to Food Paradise</p>
+</header>
+
+<main class="stage">
+  <!-- Left: Polaroid -->
+  <figure class="polaroid">
+    <div class="photo" id="photo"><span class="ph" id="ph">🍜</span></div>
+    <figcaption class="caption" id="caption">Yati &amp; good food</figcaption>
+  </figure>
+
+  <!-- Right: Reason card -->
+  <section class="card" aria-live="polite">
+    <span class="badge" id="badge">✦ Reason #1 ✦</span>
+    <div class="content" id="content">
+      <h2 id="title"></h2>
+      <p id="text"></p>
+    </div>
+    <div class="nav">
+      <button class="btn prev" id="prev">◀ Previous</button>
+      <span class="indicator" id="indicator">1 / 10</span>
+      <button class="btn next" id="next">Next ▶</button>
+    </div>
+    <div class="dots" id="dots"></div>
+  </section>
+</main>
+
+<script>
+/* ---------- Data: 10 reasons ----------
+   photo: put an image URL or relative path (e.g. "img/1.jpg") to show a real photo.
+   Leave "" to show the emoji placeholder. */
+const REASONS = [
+  { title: "ហេតុផលទី ១", emoji: "🎮", caption: "Stay cool, star player", photo: "",
+    text: "ចាញ់ហ្គេមកុំទាន់ស្រែកដាក់គេ យ៉ាទី! ដកដង្ហើមវែងៗ រួចបិទទូរសព្ទមួយភ្លែត។ ចាំថាតារាប្រចាំ Land of Dawn គេមិន Toxic ទេ គេសន្សំកម្លាំងទុកទៅវាយលុកលើតុម្ហូបក្រៅវិញ!" },
+  { title: "ហេតុផលទី ២", emoji: "🧋", caption: "Win in the belly", photo: "",
+    text: "Rank ធ្លាក់អាចឡើងមកវិញបាន តែអារម្មណ៍ល្អខូចហើយពិបាកស្រោចស្រង់ណាស់។ ឈប់ខឹងគេទៅ ទុកមាត់ដែលប្រុងជេរ Team នោះ ទៅញ៉ាំតែគុជ ឬសាច់អាំងវិញ ធានាថា Win ទាំងក្នុងពោះ ឈ្នះទាំងអារម្មណ៍!" },
+  { title: "ហេតុផលទី ៣", emoji: "🍲", caption: "Tummy > stars", photo: "",
+    text: "ជួប Team អន់កុំទាន់អស់សង្ឃឹម ព្រោះជីវិតតែងតែមានរឿងអត់សមបំណងបែបហ្នឹង។ បើ Match នេះចាញ់ ទុកវាជាមេរៀន ហើយបបួលគ្នាទៅរកអីឆ្ងាញ់ៗញ៉ាំលាងស៊យ ព្រោះក្រពះយើង សំខាន់ជាងផ្កាយក្នុងហ្គេម!" },
+  { title: "ហេតុផលទី ៤", emoji: "👑", caption: "Carry of happiness", photo: "",
+    text: "គេថាអ្នកពូកែពិត គេមិនផ្អើលពេលចាញ់នោះទេ។ យ៉ាទី អាចជា Carry ដ៏ខ្លាំងក្នុងហ្គេម តែត្រូវធ្វើជា Carry នៃភាពរីករាយក្នុងជីវិតពិតផងដែរ។ កុំឲ្យពាក្យ Defeat មកប្លន់យកស្នាមញញឹមគួរឲ្យស្រឡាញ់បានឲ្យសោះ!" },
+  { title: "ហេតុផលទី ៥", emoji: "🥢", caption: "Sweeter than Toxic", photo: "",
+    text: "ពេលចាញ់ កុំទាន់អាលវាយក្ដារចុចបន្ទោសអ្នកណា! បើម្រាមដៃរមាស់ចង់តែ Toxic សាកប្ដូរមកកាន់ស្លាបព្រា ចង្កឹះ ឬកែវភេសជ្ជៈវិញមើល៍ ផ្អែមមាត់ជាង ហើយគ្មានអ្នកណា Report ទៀតផង!" },
+  { title: "ហេតុផលទី ៦", emoji: "🛒", caption: "Market-hopping wisdom", photo: "",
+    text: "ជីវិតដូចការដើរផ្សាររករបស់ញ៉ាំអ៊ីចឹង មិនមែនគ្រប់ហាងសុទ្ធតែត្រូវមាត់យើងទាំងអស់ទេ។ ក្នុង Mobile Legends ក៏ដូចគ្នា មិនមែនគ្រប់ហ្គេមសុទ្ធតែឈ្នះឡើយ។ ចាញ់ម្ដងម្កាលរៀនញញឹមទទួលយក នោះទើបជា Pro Player ពិតប្រាកដ!" },
+  { title: "ហេតុផលទី ៧", emoji: "🌿", caption: "Real MVP moments", photo: "",
+    text: "កុំយកអារម្មណ៍ទៅចងភ្ជាប់នឹងអេក្រង់ទូរសព្ទខ្លាំងពេក។ ហ្គេមចាញ់អាចលេងម្ដងទៀតបាន តែការដើរលេងស្រូបខ្យល់អាកាស និងការញ៉ាំរបស់ឆ្ងាញ់ៗជាមួយមនុស្សជុំវិញខ្លួន គឺជារង្វាន់ពិតប្រាកដ MVP គ្មានថ្ងៃបាត់បង់ឡើយ!" },
+  { title: "ហេតុផលទី ៨", emoji: "😊", caption: "Cuter than before", photo: "",
+    text: "ពាក្យ Toxic មិនធ្វើឲ្យយើងក្លាយជា Mythic ទេ មានតែធ្វើឲ្យយើងក្ដៅក្រហាយខ្លួនឯង។ ប្ដូរពីការខឹង Team មកគិតថា 'ល្ងាចនេះញ៉ាំអីល្អ?' វិញមើល៍ ធានាថាខួរក្បាលស្រឡះ ហើយមុខឡើង Cute ជាងមុនឆ្ងាយ!" },
+  { title: "ហេតុផលទី ៩", emoji: "🍗", caption: "Nobody can steal this", photo: "",
+    text: "កុំបណ្ដោយឲ្យផ្កាយប៉ុន្មានគ្រាប់មកធ្វើបាបចិត្តក្មេងស្រីពូកែញ៉ាំម្នាក់នេះ! Lord គេអាចប្លន់បាន តែចំណង់អាហារ និងភាពស្រស់ស្រាយរបស់ យ៉ាទី គ្មាននរណាអាចប្លន់បានជាដាច់ខាត!" },
+  { title: "ហេតុផលទី ១០", emoji: "🌅", caption: "Tomorrow: Victory", photo: "",
+    text: "ថ្ងៃនេះ Defeat ថ្ងៃស្អែកអាច Victory! សំខាន់ឲ្យតែចិត្តនៅតែសប្បាយ រីករាយនឹងការដើរលេង ភ្លក្សម្ហូបឆ្ងាញ់ៗជារៀងរាល់ថ្ងៃ។ ញញឹមឡើង យ៉ាទី ពិភពលោកខាងក្រៅនៅមានរបស់ឆ្ងាញ់ៗរង់ចាំច្រើនទៀតណាស់!" }
+];
+
+/* ---------- State & element refs ---------- */
+let index = 0;
+let busy = false;
+const $ = id => document.getElementById(id);
+const content = $('content'), photo = $('photo'), ph = $('ph');
+
+/* ---------- Render one reason ---------- */
+function render() {
+  const r = REASONS[index];
+  $('badge').textContent = `✦ Reason #${index + 1} ✦`;
+  $('title').textContent = r.title;
+  $('text').textContent = r.text;
+  $('caption').textContent = r.caption;
+  $('indicator').textContent = `${index + 1} / ${REASONS.length}`;
+  ph.textContent = r.emoji;
+
+  // Show real photo if a URL was provided
+  const old = photo.querySelector('img');
+  if (old) old.remove();
+  if (r.photo) {
+    const img = new Image();
+    img.src = r.photo; img.alt = r.caption;
+    photo.appendChild(img);
+  }
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === index));
+}
+
+/* ---------- Navigate with fade & slide ---------- */
+function go(to, dir) {
+  if (busy || to === index) return;
+  busy = true;
+  content.classList.add(dir > 0 ? 'out-left' : 'out-right');
+  setTimeout(() => {
+    index = (to + REASONS.length) % REASONS.length;
+    render();
+    // Enter from the opposite side, then settle
+    content.classList.remove('out-left', 'out-right');
+    content.classList.add(dir > 0 ? 'out-right' : 'out-left');
+    void content.offsetWidth; // force reflow
+    content.classList.remove('out-right', 'out-left');
+    busy = false;
+  }, 300);
+}
+
+$('next').onclick = () => go(index + 1, 1);
+$('prev').onclick = () => go(index - 1, -1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') go(index + 1, 1);
+  if (e.key === 'ArrowLeft')  go(index - 1, -1);
+});
+
+/* Swipe support for phones */
+let touchX = null;
+document.addEventListener('touchstart', e => touchX = e.touches[0].clientX, { passive: true });
+document.addEventListener('touchend', e => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 60) go(index + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+  touchX = null;
+});
+
+/* ---------- Progress dots ---------- */
+REASONS.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'dot';
+  d.setAttribute('aria-label', 'Reason ' + (i + 1));
+  d.onclick = () => go(i, i > index ? 1 : -1);
+  $('dots').appendChild(d);
+});
+
+/* ---------- Floating particles ---------- */
+const symbols = ['💖', '✦', '✧', '🍜', '⭐', '🧋'];
+const box = $('particles');
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('span');
+  p.className = 'particle';
+  p.textContent = symbols[i % symbols.length];
+  p.style.left = Math.random() * 100 + '%';
+  p.style.animationDuration = 12 + Math.random() * 14 + 's';
+  p.style.animationDelay = -Math.random() * 20 + 's';
+  p.style.fontSize = 10 + Math.random() * 14 + 'px';
+  box.appendChild(p);
+}
+
+render();
+</script>
+</body>
+</html>
